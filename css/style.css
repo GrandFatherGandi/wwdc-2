@@ -7,6 +7,22 @@
           box-sizing: border-box;
 }
 
+*[class^=material-icons] {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}
+
 body {
   font-family: 'Raleway', sans-serif;
 }
@@ -43,6 +59,24 @@ header {
   right: 0;
 }
 
+.nav_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 5px;
+}
+
+.nav_button {
+  background-color: transparent;
+  border: 0;
+}
+
 .container {
   width: 100%;
   margin: 0 auto;
@@ -70,6 +104,19 @@ header {
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
+    max-width: 1240px;
+  }
+}
+
+@media (min-width: 1300px) {
+  .container_center {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     max-width: 1240px;
   }
 }
@@ -204,27 +251,12 @@ h4 {
 }
 
 .nav_list {
-  width: 45%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  display: none;
   list-style: none;
 }
 
-@media screen and (min-width: 1300px) {
-  .nav_list {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-  }
+.nav_list li {
+  margin-right: 5px;
 }
 
 .nav_list a {
