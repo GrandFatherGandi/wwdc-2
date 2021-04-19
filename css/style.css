@@ -5,6 +5,7 @@
   padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  outline: none;
 }
 
 *[class^=material-icons] {
@@ -30,7 +31,7 @@ body {
 header {
   min-height: 100vh;
   background-color: #f9f8fb;
-  padding: 150px 0 100px 0;
+  padding: 50px 0 50px 0;
   background-image: url(/css/img/img.png);
   background-repeat: no-repeat;
   background-size: auto calc(100%);
@@ -39,13 +40,32 @@ header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.header::after {
+  content: '';
+  display: block;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: #fff;
+  opacity: 0.9;
+}
+
+@media screen and (min-width: 640px) {
+  .header::after {
+    opacity: 0;
+  }
 }
 
 .nav {
@@ -57,6 +77,41 @@ header {
   top: 0px;
   left: 0;
   right: 0;
+  z-index: 2;
+}
+
+.section_head {
+  position: relative;
+  z-index: 2;
+  padding: 0 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media screen and (min-width: 640px) {
+  .section_head {
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .section_head {
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    width: 40%;
+  }
 }
 
 .nav_container {
@@ -69,7 +124,6 @@ header {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 0 5px;
 }
 
 .nav_button {
@@ -77,9 +131,20 @@ header {
   border: 0;
 }
 
+@media (min-width: 640px) {
+  .butto_wrapper {
+    display: none;
+  }
+}
+
 .container {
-  width: 100%;
-  margin: 0 auto;
+  padding: 0 5px;
+  width: 1170px;
+  max-width: 100%;
+  margin: auto;
+}
+
+.scroll_wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -87,25 +152,30 @@ header {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  z-index: 2;
 }
 
-@media (min-width: 1300px) {
-  .container {
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    max-width: 1240px;
-  }
+.scroll_icon {
+  width: 24px;
+  height: 40px;
+}
+
+.about_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.about_img {
+  display: block;
+  width: 100%;
 }
 
 @media (min-width: 1300px) {
@@ -121,33 +191,9 @@ header {
   }
 }
 
-.row {
-  width: 42%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -ms-flex-line-pack: justify;
-      align-content: space-between;
-}
-
 .section_about_us {
   background-color: #00b1b1;
   padding: 60px 0;
-}
-
-.section_about_us .container {
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-.section_about_us .row {
-  padding: 0 10px;
-  width: 50%;
 }
 
 .section_about_us .info {
@@ -156,7 +202,7 @@ header {
 
 .section_services {
   background-color: #70bfff;
-  padding: 60px 0;
+  padding: 40px 0;
 }
 
 .section_services .col_2 {
@@ -197,8 +243,8 @@ header {
           align-items: center;
   background-color: #fff;
   margin-bottom: 20px;
-  -webkit-box-shadow: 2px 4px 8px #45769e, -2px 4px 8px #45769e;
-          box-shadow: 2px 4px 8px #45769e, -2px 4px 8px #45769e;
+  -webkit-box-shadow: 3px 4px 8px #45769e, -3px 4px 8px #45769e;
+          box-shadow: 3px 4px 8px #45769e, -3px 4px 8px #45769e;
 }
 
 .service_box:last-child {
@@ -228,10 +274,6 @@ header {
           justify-content: center;
 }
 
-.logo {
-  width: 30%;
-}
-
 h1 {
   font-size: 60px;
   font-weight: bold;
@@ -255,7 +297,15 @@ h4 {
   list-style: none;
 }
 
-.nav_list li {
+@media (min-width: 640px) {
+  .nav_list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
+.nav_list li:not(:last-of-type) {
   margin-right: 5px;
 }
 
@@ -282,24 +332,41 @@ h4 {
   font-size: 17px;
   font-weight: 100;
   margin-bottom: 15px;
+  text-align: center;
 }
 
-.button_now {
-  width: 200px;
+@media screen and (min-width: 640px) {
+  .info {
+    text-align: left;
+  }
+}
+
+.button_head {
+  width: 150px;
   background-color: #ff6033;
   text-align: center;
-  font-weight: 100;
-  -webkit-box-shadow: 2px 5px 5px #9a9a9c, -2px 0 5px #9a9a9c;
-          box-shadow: 2px 5px 5px #9a9a9c, -2px 0 5px #9a9a9c;
-  padding: 16px 0 16px 0;
+  -webkit-box-shadow: 2px 4px 5px #9a9a9c, -2px 3px 5px #9a9a9c;
+          box-shadow: 2px 4px 5px #9a9a9c, -2px 3px 5px #9a9a9c;
+  padding: 10px 0;
   cursor: pointer;
-}
-
-.button_now a {
+  font-weight: 100;
   text-decoration: none;
   text-transform: uppercase;
   color: #fff;
-  font-size: 20px;
+  font-size: 16px;
+}
+
+@media screen and (min-width: 640px) {
+  .button_head {
+    padding: 16px 0;
+    width: 200px;
+    font-size: 20px;
+  }
+}
+
+.button_head:hover,
+.button_head:focus {
+  background-color: #fe7853;
 }
 
 .img-fluid {
