@@ -536,7 +536,7 @@ h4 {
 
 @media screen and (min-width: 900px) {
   .section_gallery {
-    padding: 60px 0;
+    padding: 60px 5;
   }
 }
 
@@ -545,9 +545,15 @@ h4 {
   max-width: 100%;
 }
 
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 640px) {
   .gallery_heading_box {
-    max-width: 50%;
+    max-width: 70%;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .gallery_heading_box {
+    max-width: 60%;
   }
 }
 
@@ -580,7 +586,7 @@ h4 {
   }
 }
 
-@media screen and (min-width: 580px) {
+@media screen and (min-width: 800px) {
   .grid {
     -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
