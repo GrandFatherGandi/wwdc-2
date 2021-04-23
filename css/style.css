@@ -718,7 +718,7 @@ h4 {
 
 .section_subscribe {
   padding: 40px 5px;
-  background-image: url(/css/img/blueberry_bg.png);
+  background-image: url(../css/img/blueberry_bg.png);
   background-repeat: no-repeat;
   background-size: auto;
   background-position: center top;
