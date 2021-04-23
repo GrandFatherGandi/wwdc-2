@@ -6,6 +6,7 @@
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   outline: none;
+  border: 0;
 }
 
 *[class^="material-icons"] {
@@ -22,6 +23,10 @@
   direction: ltr;
   -webkit-font-feature-settings: "liga";
   -webkit-font-smoothing: antialiased;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -121,10 +126,24 @@ h2 {
   }
 }
 
+.subscribe_heading {
+  text-align: center;
+  color: black;
+  margin-bottom: 10px;
+}
+
+@media screen and (min-width: 800px) {
+  .subscribe_heading {
+    text-align: left;
+  }
+}
+
 h4 {
   font-size: 50px;
   font-family: "Pacifico", cursive;
   font-weight: 300;
+  -webkit-transition: font-size 0.5s ease-in-out;
+  transition: font-size 0.5s ease-in-out;
 }
 
 .nav {
@@ -135,11 +154,23 @@ h4 {
   padding: 0 15px;
   margin: 0 auto;
   background-color: #f9f8fb3d;
+  z-index: 3;
   position: fixed;
-  top: 0px;
+  top: 0;
   left: 0;
   right: 0;
-  z-index: 3;
+}
+
+.nav.scrolled {
+  background-color: #f9f8fb;
+}
+
+.nav.scrolled h4 {
+  font-size: 30px;
+}
+
+.nav.scrolled .nav_list a {
+  font-size: 12px;
 }
 
 .section_head {
@@ -194,7 +225,7 @@ h4 {
 }
 
 @media screen and (min-width: 640px) {
-  .butto_wrapper {
+  .button_wrapper {
     display: none;
   }
 }
@@ -227,10 +258,13 @@ h4 {
   border-top: 3px solid #f9f8fb00;
   -webkit-transition: border-top 0.5s;
   transition: border-top 0.5s;
+  -webkit-transition: font-size 0.5s ease-in-out;
+  transition: font-size 0.5s ease-in-out;
 }
 
 .nav_list a:hover,
-.nav_list a:target {
+.nav_list a:target,
+.nav_list li.active a {
   border-top: 3px solid #ff6033;
 }
 
@@ -251,6 +285,27 @@ h4 {
 .gallery_info {
   text-align: center;
   padding-bottom: 10px;
+}
+
+.gallery_view_more {
+  text-align: center;
+  padding-top: 10px;
+  display: none;
+}
+
+.gallery_view_more.show {
+  display: block;
+}
+
+.subscribe_info {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+@media screen and (min-width: 800px) {
+  .subscribe_info {
+    text-align: left;
+  }
 }
 
 .button {
@@ -291,6 +346,16 @@ h4 {
 
 .button_gallery:hover, .button_gallery:focus {
   background-color: #698ea4;
+}
+
+.button_subscribe {
+  background-color: #96b92c;
+  -webkit-box-shadow: 2px 2px 5px #9e9e9e, -2px 2px 5px #9e9e9e;
+          box-shadow: 2px 2px 5px #9e9e9e, -2px 2px 5px #9e9e9e;
+}
+
+.button_subscribe:hover, .button_subscribe:focus {
+  background-color: #9db948;
 }
 
 .container {
@@ -393,7 +458,7 @@ h4 {
   padding: 40px 5px;
 }
 
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 640px) {
   .section_services {
     padding: 60px 0;
   }
@@ -409,7 +474,7 @@ h4 {
           flex-direction: column;
 }
 
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 640px) {
   .services_container {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
@@ -443,7 +508,7 @@ h4 {
           order: 2;
 }
 
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 640px) {
   .services_col_1 {
     -webkit-box-ordinal-group: 2;
         -ms-flex-order: 1;
@@ -469,7 +534,7 @@ h4 {
           align-items: center;
 }
 
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 640px) {
   .services_col_2 {
     -webkit-box-ordinal-group: 3;
         -ms-flex-order: 2;
@@ -536,7 +601,7 @@ h4 {
 
 @media screen and (min-width: 900px) {
   .section_gallery {
-    padding: 60px 5;
+    padding: 60px 5px;
   }
 }
 
@@ -590,8 +655,8 @@ h4 {
   .grid {
     -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-    -ms-grid-rows: 1fr 1fr 0.75fr 0.75fr;
-        grid-template-rows: 1fr 1fr 0.75fr 0.75fr;
+    -ms-grid-rows: 1fr;
+        grid-template-rows: 1fr;
         grid-template-areas: "box_1 box_1 box_1 box_1 box_2 box_2" "box_1 box_1 box_1 box_1 box_3 box_3" "box_4 box_4 box_4 box_5 box_5 box_5" "box_4 box_4 box_4 box_5 box_5 box_5";
   }
 }
@@ -649,5 +714,86 @@ h4 {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+.section_subscribe {
+  padding: 40px 5px;
+  background-image: url(/css/img/blueberry_bg.png);
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position: center top;
+}
+
+@media screen and (min-width: 800px) {
+  .section_subscribe {
+    padding: 120px 5px;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .subscribe_heading_box {
+    width: 50%;
+  }
+}
+
+.subscribe_form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media screen and (min-width: 800px) {
+  .subscribe_form {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: left;
+        -ms-flex-pack: left;
+            justify-content: left;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
+.subscirbe_email {
+  font-size: 15px;
+  margin-bottom: 10px;
+  padding: 18px 12px;
+  width: 60%;
+  border: 1px solid #000;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.subscirbe_email::-webkit-input-placeholder {
+  color: #aaaaaa;
+}
+
+.subscirbe_email:-ms-input-placeholder {
+  color: #aaaaaa;
+}
+
+.subscirbe_email::-ms-input-placeholder {
+  color: #aaaaaa;
+}
+
+.subscirbe_email::placeholder {
+  color: #aaaaaa;
+}
+
+@media screen and (min-width: 800px) {
+  .subscirbe_email {
+    margin-bottom: 0;
+    margin-right: 30px;
+    width: 47%;
+  }
 }
 /*# sourceMappingURL=style.css.map */
